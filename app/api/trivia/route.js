@@ -18,9 +18,6 @@ export const GET = async (req) => {
             headers: {
                 referer: referer,
                 'Cache-Control':'no-cache, no-store, max-age=0, must-revalidate',
-                'Pragma': 'no-cache',
-                'Expires': '0',
-                'Location': url.toString()
             }
         })
     }
