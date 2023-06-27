@@ -1,12 +1,12 @@
-import Trivia from '@models/trivia';
-import { connectToDB } from '@utils/database';
+import Trivia from '@/models/trivia';
+import { connectToDatabase } from '@/utils/database';
 import { headers } from 'next/headers';
 
 export const GET = async (request) => {
   const headersList = headers();
   const referer = headersList.get('referer');
   try {
-    await connectToDB();
+    await connectToDatabase();
 
     const trivias = await Trivia.find({}).populate('creator');
     return new Response(JSON.stringify(trivias), {
